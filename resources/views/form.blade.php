@@ -1,13 +1,24 @@
-<form method="POST" action="/store_form">
-    @csrf
-    <label for="first_name">Имя:</label>
-    <input type="text" id="first_name" name="first_name" required><br>
-
-    <label for="last_name">Фамилия:</label>
-    <input type="text" id="last_name" name="last_name" required><br>
-
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required><br>
-
-    <button type="submit">Отправить</button>
-</form> 
+<div class="add-books__form-wrapper">
+    <form name="add-new-book" id="add-new-book" method="post" action="{{ url('store-form') }}">
+        @csrf
+        <div class="form-section">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" class="form-control" required>
+        </div>
+        <div class="form-section">
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author" class="form-control" required>
+        </div>
+        <div class="form-section">
+            <label for="genre">Choose Genre:</label>
+            <select name="genre" id="genre">
+                <option value="fantasy">Fantasy</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="mystery">Mystery</option>
+                <option value="drama">Drama</option>
+            </select>
+        </div>
+        <!-- Дополнительные поля по желанию -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div> 

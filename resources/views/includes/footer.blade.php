@@ -1,0 +1,1 @@
+<p>&copy; 2024 Laravel Project. Все права защищены.</p> 

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormProcessor;
+use App\Http\Controllers\EmployeeController;
 use App\Models\Employee;
 
 Route::get('/', function () {
@@ -24,6 +25,9 @@ Route::get('/contacts', function () {
 
 Route::get('/userform', [FormProcessor::class, 'index']);
 Route::post('/store_form', [FormProcessor::class, 'store']);
+Route::get('get-employee-data', [EmployeeController::class, 'index']);
+Route::post('store-form', [EmployeeController::class, 'store']);
+Route::get('employee/{id}', [EmployeeController::class, 'show']);
 Route::get('/test_database', function () {
     $employee = new Employee();
     $employee->name = 'Test Name';

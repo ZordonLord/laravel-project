@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormProcessor;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\BookController;
 use App\Models\Employee;
 
 Route::get('/', function () {
@@ -34,3 +35,5 @@ Route::get('/test_database', function () {
     $employee->save();
     return 'Employee saved!';
 });
+Route::get('/index', [BookController::class, 'index']);
+Route::post('/store', [BookController::class, 'store']);

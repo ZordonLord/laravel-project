@@ -6,6 +6,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PdfGeneratorController;
+use App\Http\Controllers\UsersController;
 use App\Models\Employee;
 use App\Models\Log;
 
@@ -40,7 +41,7 @@ Route::get('/test_database', function () {
 });
 Route::get('/index', [BookController::class, 'index']);
 Route::post('/store', [BookController::class, 'store']);
-Route::get('/users', [UserController::class, 'index']);
+Route::get('/users', [UsersController::class, 'index'])->middleware('auth');
 Route::get('/user/{id}', [UserController::class, 'get']);
 Route::post('/user', [UserController::class, 'store']);
 Route::get('/resume/{id}', [PdfGeneratorController::class, 'index']);

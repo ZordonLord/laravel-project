@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormProcessor;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\PdfGeneratorController;
 use App\Models\Employee;
 
 Route::get('/', function () {
@@ -37,3 +39,7 @@ Route::get('/test_database', function () {
 });
 Route::get('/index', [BookController::class, 'index']);
 Route::post('/store', [BookController::class, 'store']);
+Route::get('/users', [UserController::class, 'index']);
+Route::get('/user/{id}', [UserController::class, 'get']);
+Route::post('/user', [UserController::class, 'store']);
+Route::get('/resume/{id}', [PdfGeneratorController::class, 'index']);

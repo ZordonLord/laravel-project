@@ -1,4 +1,4 @@
-<form method="POST" action="">
+<form method="POST" action="/store_form">
     @csrf
     <label for="first_name">Имя:</label>
     <input type="text" id="first_name" name="first_name" required><br>

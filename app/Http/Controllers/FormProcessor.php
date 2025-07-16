@@ -10,4 +10,10 @@ class FormProcessor extends Controller
     {
         return view('form');
     }
+
+    public function store(Request $request)
+    {
+        $data = $request->only(['first_name', 'last_name', 'email']);
+        return response()->json($data);
+    }
 }

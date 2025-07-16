@@ -7,6 +7,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PdfGeneratorController;
 use App\Models\Employee;
+use App\Models\Log;
 
 Route::get('/', function () {
     return view('home', [
@@ -43,3 +44,7 @@ Route::get('/users', [UserController::class, 'index']);
 Route::get('/user/{id}', [UserController::class, 'get']);
 Route::post('/user', [UserController::class, 'store']);
 Route::get('/resume/{id}', [PdfGeneratorController::class, 'index']);
+Route::get('/logs', function () {
+    $logs = Log::orderByDesc('id')->limit(100)->get();
+    return view('logs', compact('logs'));
+});
